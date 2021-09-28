@@ -1,6 +1,6 @@
-# Tag app with Django
+# Task app with Django
 
-A simple Tag app with Django Framework
+A simple Task app with authentication in Django Framework
 
 ### Tools
 
