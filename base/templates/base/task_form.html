@@ -1,0 +1,25 @@
+{% extends "base/main.html" %}
+
+{% block head %}
+    <div class="ms-2 me-auto">
+      <a href="{% url 'tasks' %}" class="btn btn-outline-light pt-1"><span class="text-dark">Back</span></a>
+    </div>
+{% endblock %}
+{% block body %}
+    <form method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_title" class="form-label">{{ form.title.label_tag }}</label>
+        <input type="text" class="form-control" id="id_title" value="{% if form.description.value %}{{form.title.value}}{%endif%}" name="{{form.title.name}}">
+      </div>
+      <div class="mb-3">
+        <label for="id_description" class="form-label">{{ form.description.label_tag }}</label><br>
+        <textarea class="form-control" id="id_description" name="{{form.description.name}}">{% if form.description.value %} {{form.description.value}} {%endif%}</textarea>
+      </div>
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="id_complete" name="{{ form.complete.name }}" {% if form.complete.value %} checked {% endif %}>
+        <label class="form-check-label" for="id_complete">{{ form.complete.label }}</label>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

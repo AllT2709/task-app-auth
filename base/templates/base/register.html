@@ -1,0 +1,24 @@
+{% extends "base/main.html" %}
+
+{% block head %}
+    <h2 class="text-center">Register</h2>
+{% endblock %}
+{% block body %}
+    <form method="POST" class="mb-3">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_username" class="form-label">{{form.username.label_tag}}</label>
+        <input type="text" class="form-control" required  autofocus autocapitalize="none" autocomplete="username"  id="id_username" name="{{form.username.name}}">
+      </div>
+      <div class="mb-3">
+        <label for="id_password1" class="form-label">{{form.password1.label_tag}}</label>
+        <input type="password" autocomplete="new-password" class="form-control" required id="id_password1" name="{{form.password1.name}}">
+      </div>
+      <div class="mb-3">
+        <label for="id_password2" class="form-label">{{form.password2.label_tag}}</label>
+        <input type="password" autocomplete="new-password" class="form-control" required id="id_password2" name="{{form.password2.name}}">
+      </div>
+      <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+      <p>Alredy have an account? <a href="{% url 'login' %}">Login</a></p>
+{% endblock %}

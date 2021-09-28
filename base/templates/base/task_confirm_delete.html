@@ -1,0 +1,19 @@
+{% extends "base/main.html" %} {% block head %}
+<div class="ms-2 me-auto">
+  <a href="{% url 'tasks' %}" class="btn btn-outline-light pt-1"
+    ><span class="text-dark">Cancel</span></a
+  >
+</div>
+{% endblock %} {% block body %}
+<div class="d-flex justify-content-between align-items-center">
+  <div class="ms-2 me-auto">
+    <h3>
+      Confirm delete <strong><i>{{task}}</i></strong>
+    </h3>
+  </div>
+  <form action="" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete" class="btn btn-danger" />
+  </form>
+</div>
+{% endblock %}

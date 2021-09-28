@@ -1,0 +1,20 @@
+{% extends "base/main.html" %}
+
+{% block head %}
+    <h2 class="text-center">Login</h2>
+{% endblock %}
+{% block body %}
+    <form method="POST" class="mb-3">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_username" class="form-label">{{form.username.label_tag}}</label>
+        <input type="text" class="form-control" required id="id_username" name="{{form.username.name}}">
+      </div>
+      <div class="mb-3">
+        <label for="id_password" class="form-label">Password</label>
+        <input type="password" class="form-control" required id="id_password" name="{{form.password.name}}">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+      <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+{% endblock %}
