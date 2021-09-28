@@ -22,7 +22,8 @@ The project is finished
 
 - Enter the poject file and download the dependencies
 
-  `$ pip install` or `$ pip3 install`
+  `$ pip install django` or `$ pip3 install django`
+  `$ python manage.py migrate`
 
 **_note: You must build a virtualenv for this project_**
 **_note: Carefull with the SECRET KEY, the app won't work_**
